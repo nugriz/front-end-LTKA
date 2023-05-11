@@ -177,9 +177,9 @@ export default function App() {
         {/* Also, note I changed the function name, handleSubmit */}
         <form onSubmit={handleSubmit} style={form}>
           <p style={p}>Welcome</p>
-          <div><input style={input} type="text" placeholder='Open Price' name="name" value={openPrice} onChange={handleChange} /></div>
-          <div><input style={input} type="text" placeholder='High Price'name="names" value={highPrice} onChange={handleChange2} /></div>
-          <div><input style={input} type="text" placeholder='Low Price' name="namez" value={lowPrice} onChange={handleChange3} /></div>
+          <div><input style={input} type="text" placeholder='Open Price ($)' name="name" value={openPrice} onChange={handleChange} /></div>
+          <div><input style={input} type="text" placeholder='High Price ($)'name="names" value={highPrice} onChange={handleChange2} /></div>
+          <div><input style={input} type="text" placeholder='Low Price ($)' name="namez" value={lowPrice} onChange={handleChange3} /></div>
           <button style={button} type="submit">Click</button>
         </form>
       </div>
@@ -189,7 +189,9 @@ export default function App() {
         <p style={p2}>Close price :</p>
           <div style={close}>
             <div style={{fontSize: '20px', paddingTop: '4.5em'}}>
-            {respond['predicted_price']}
+              $ {
+                respond['predicted_price'] ? Number(respond['predicted_price']).toFixed(2) : " "
+              }
             </div>
           </div>
         </div>
