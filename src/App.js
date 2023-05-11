@@ -6,8 +6,14 @@ export default function App() {
   const [highPrice, setHighPrice] = useState('')
   const [lowPrice, setLowPrice] = useState('')
 
+  const body = {
+    open: parseInt(openPrice), // Use your own property name / key
+    high: parseInt(highPrice),
+    low: parseInt(lowPrice),
+  }
+
   useEffect(() => {
-    fetchGames() // Fetch games when component is mounted
+    //fetchGames() // Fetch games when component is mounted
     document.title = `LTKA`;
   }, [])
 
@@ -26,15 +32,11 @@ export default function App() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        open: openPrice, // Use your own property name / key
-        high: highPrice,
-        low: lowPrice,
-      }),
+      body: JSON.stringify(body),
     })
       .then((res) => res.json())
       .then((result) => setRespond(result))
-      .catch((err) => console.log('error'))
+      .catch((err) => console.log(JSON.stringify(body)))
   }
   
   const handleSubmit = (event) => {
