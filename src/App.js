@@ -8,6 +8,7 @@ export default function App() {
 
   useEffect(() => {
     fetchGames() // Fetch games when component is mounted
+    document.title = `LTKA`;
   }, [])
 
   const fetchGames = () => {
