@@ -21,15 +21,15 @@ export default function App() {
   }
 
   const saveGames = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch('https://flask-ml-381907.et.r.appspot.com/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: openPrice, // Use your own property name / key
-        body: highPrice,
-        id: lowPrice,
+        open: openPrice, // Use your own property name / key
+        high: highPrice,
+        low: lowPrice,
       }),
     })
       .then((res) => res.json())
@@ -187,9 +187,7 @@ export default function App() {
         <p style={p2}>Close price :</p>
           <div style={close}>
             <div style={{fontSize: '20px', paddingTop: '4.5em'}}>
-            {respond['title']}
-            {respond['body']}
-            {respond['id']}
+            {respond['predicted_price']}
             </div>
           </div>
         </div>
