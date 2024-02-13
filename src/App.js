@@ -27,7 +27,7 @@ export default function App() {
   }
 
   const saveGames = () => {
-    fetch('https://flask-ml-381907.et.r.appspot.com/predict', {
+    fetch('https://ltka-6a2b7e74102f.herokuapp.com/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
